@@ -54,14 +54,6 @@
 - [ ] расширить спектр настроек уведомлений
 - [ ] интегрировать Яндекс.Календарь и другие подобные сервисы
 
-## Технологии
-- **Фронтенд:** TypeScript + React + shadcn/ui
-- **Бэкенд:** Node.js + Next.js + PostgreSQL + Prisma ORM
-- **Telegram-бот:** Python + Pyrogram + FastAPI + Poetry
-- **Планировщик / система уведомлений:** C# + Hangfire + ASP.NET Core + PostgreSQL + EF Core + Seq + Serilog + MailKit
-- **Парсер:** Python + PyMuPDF + HTTPX + Poetry
-- **Архитектура:** микросервисы, взаимодействующие по HTTP и упакованные в контейнер Docker
-
 ## Установка
 
 > [!NOTE]
