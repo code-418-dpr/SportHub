@@ -1,0 +1,11 @@
+target-version = "py313"
+line-length = 88
+indent-width = 4
+
+[lint]
+select = ["ALL"]
+ignore = ["D100", "D104", "D211", "D213", "Q000", "E401", "I001", "D103", "S501", "FBT001", "FBT002", "FBT003", "TID252", "RUF"]
+
+[format]
+line-ending = "auto"
+quote-style = "single"
