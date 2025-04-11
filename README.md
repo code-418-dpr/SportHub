@@ -2,10 +2,13 @@
 
 [![license](https://img.shields.io/github/license/code-418-dpr/SportHub)](https://opensource.org/licenses/MIT)
 [![release](https://img.shields.io/github/v/release/code-418-dpr/SportHub?include_prereleases)](https://github.com/code-418-dpr/SportHub/releases)
-[![downloads](https://img.shields.io/github/downloads/code-418-dpr/SportHub/total)](https://github.com/code-418-dpr/SportHub/releases)
-[![code size](https://img.shields.io/github/languages/code-size/code-418-dpr/SportHub.svg)](https://github.com/code-418-dpr/SportHub)
 
 Агрегатор обновлений единого календарного плана спортивных мероприятий Министерства спорта России
+
+<details>
+  <summary><h2>Демо</h2></summary>
+   Здесь будут скриншоты, возможно даже видео.
+</details>
 
 ## Особенности реализации
 
@@ -28,25 +31,17 @@
     - [x] позволяет входить в учётную запись SportHub
     - [x] служит одним из способов получения уведомлений
 
-✅ всё вышеперечисленное упаковано в контейнер Docker и развёрнуто на VDS!
-
-
-<details>
-  <summary><h2>Демо</h2></summary>
-   Здесь будут скриншоты, возможно даже видео.
-</details>
-
-
 ## Архитектура
 
 Проект состоит из микросервисов, предназначенных для развёртывания в Docker:
 
-- [веб-приложение](https://github.com/code-418-dpr/SportHub-web)  
+- [веб-приложение](https://github.com/code-418-dpr/SportHub-web)
 - [парсер](https://github.com/code-418-dpr/SportHub-parser)
 - [сервис уведомлений](https://github.com/code-418-dpr/SportHub-notification-service)
 - [Telegram-бот](https://github.com/code-418-dpr/SportHub-bot)
 
 ## В планах
+
 - [ ] усовершенствовать систему рекомендаций, чтобы она учитывала больше персональных особенностей
 - [ ] скопировать больше функционала веб-приложения в Telegram-бот
 - [ ] добавить больше вариантов просмотра календарного плана
