@@ -1,9 +1,17 @@
-<img src="https://github.com/user-attachments/assets/a5808c3f-058c-4799-86b0-967e4686f41e" width=15%>
-
 # SportHub
-Агрегатор обновлений единого календарного плана межрегиональных, всероссийских и международных физкультурных / спортивных мероприятий Министерства спорта России
 
-## Особенности разработки
+[![license](https://img.shields.io/github/license/code-418-dpr/SportHub)](https://opensource.org/licenses/MIT)
+[![release](https://img.shields.io/github/v/release/code-418-dpr/SportHub?include_prereleases)](https://github.com/code-418-dpr/SportHub/releases)
+
+Агрегатор обновлений единого календарного плана спортивных мероприятий Министерства спорта России
+
+<details>
+  <summary><h2>Демо</h2></summary>
+   Здесь будут скриншоты, возможно даже видео.
+</details>
+
+## Особенности реализации
+
 - веб-приложение
     - [x] хорошо смотрится как на десктопных, так и на мобильных устройствах
     - [x] позволяет просматривать список событий
@@ -23,40 +31,60 @@
     - [x] позволяет входить в учётную запись SportHub
     - [x] служит одним из способов получения уведомлений
 
-✅ всё вышеперечисленное упаковано в контейнер Docker и развёрнуто на VDS!
+## Архитектура
 
-<details>
-  <summary><h2>Демо</h2></summary>
-   Здесь будут скриншоты, возможно даже видео.
-</details>
+Проект состоит из микросервисов, предназначенных для развёртывания в Docker:
 
-## Ресурсы
-- [Веб-приложение]()
-- [Telegram-бот](https://t.me/SportHub_418_bot)
+- [веб-приложение](https://github.com/code-418-dpr/SportHub-web)
+- [парсер](https://github.com/code-418-dpr/SportHub-parser)
+- [сервис уведомлений](https://github.com/code-418-dpr/SportHub-notification-service)
+- [Telegram-бот](https://github.com/code-418-dpr/SportHub-bot)
 
 ## В планах
-- [ ] разработать мобильное приложение
+
 - [ ] усовершенствовать систему рекомендаций, чтобы она учитывала больше персональных особенностей
-- [ ] скопировать часть функционала веб-приложения в Telegram-бот
+- [ ] скопировать больше функционала веб-приложения в Telegram-бот
 - [ ] добавить больше вариантов просмотра календарного плана
 - [ ] добавить карту предстоящих событий
 - [ ] расширить спектр настроек уведомлений
-- [ ] интегрировать Яндекс- и другие календарные сервисы
+- [ ] интегрировать Яндекс.Календарь и другие подобные сервисы
 
-## Технологии
-- **Фронтенд:** TypeScript + React + shadcn/ui
-- **Бэкенд:** Node.js + Next.js + PostgreSQL + Prisma ORM
-- **Telegram-бот:** Python + Pyrogram + FastAPI + Poetry
-- **Планировщик / система уведомлений:** C# + Hangfire + ASP.NET Core + PostgreSQL + EF Core + Seq + Serilog + MailKit
-- **Парсер:** Python + PyMuPDF + HTTPX + Poetry
-- **Архитектура:** микросервисы, взаимодействующие по HTTP и упакованные в контейнер Docker
+## Установка
 
+> [!NOTE]
+> Мы отказались от использования `git submodules` и `git subtree` из-за периодически возникающей путаницы при
+> отслеживании изменений в монорепозиториях. Данный репозиторий представляет собой единую точку для работы с проектом,
+> лишённую этих недостатков.
 
-## Запуск у себя
-1. Установите и настройте [Docker](https://www.docker.com/), как указано в документации.
-2. Из папки проекта выполните команды:
+0. Клонируйте репозиторий и перейдите в его папку.
+1. Клонируйте репозитории сервисов, входящих в состав проекта по SSH (рекомендуется):
+
+```shell
+git clone git@github.com:code-418-dpr/SportHub-web.git services/SportHub-web
+git clone git@github.com:code-418-dpr/SportHub-parser.git services/SportHub-parser
+git clone git@github.com:code-418-dpr/SportHub-notification-service.git services/SportHub-notification-service
+git clone git@github.com:code-418-dpr/SportHub-bot.git services/SportHub-bot
 ```
-docker-compose build
-docker-compose up -d
+
+или по HTTPS:
+
+```shell
+git clone https://github.com/code-418-dpr/SportHub-web.git services/SportHub-web
+git clone https://github.com/code-418-dpr/SportHub-parser.git services/SportHub-parser
+git clone https://github.com/code-418-dpr/SportHub-notification-service.git services/SportHub-notification-service
+git clone https://github.com/code-418-dpr/SportHub-bot.git services/SportHub-bot
 ```
-3. После этого произойдёт сборка контейнера и веб-приложение будет доступно по [этому адресу](http://localhost:3000).
+
+После этого вы можете вносить изменения в каждый из сервисов по-отдельности (в соответствии с инструкциями, описанными в
+соответствующих README).
+
+## Запуск
+
+0. Установите проект по инструкции выше.
+1. Создайте файл `.env` на основе [.env.template](.env.template) и настройте все описанные там параметры.
+2. Установите Docker.
+3. Теперь запускать проект можно командой:
+
+```shell
+docker compose up -d --build
+```
