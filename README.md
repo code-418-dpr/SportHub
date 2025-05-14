@@ -63,7 +63,6 @@
 git clone git@github.com:code-418-dpr/SportHub-web.git services/SportHub-web
 git clone git@github.com:code-418-dpr/SportHub-parser.git services/SportHub-parser
 git clone git@github.com:code-418-dpr/SportHub-notification-service.git services/SportHub-notification-service
-git clone git@github.com:code-418-dpr/SportHub-bot.git services/SportHub-bot
 ```
 
 или по HTTPS:
@@ -72,7 +71,6 @@ git clone git@github.com:code-418-dpr/SportHub-bot.git services/SportHub-bot
 git clone https://github.com/code-418-dpr/SportHub-web.git services/SportHub-web
 git clone https://github.com/code-418-dpr/SportHub-parser.git services/SportHub-parser
 git clone https://github.com/code-418-dpr/SportHub-notification-service.git services/SportHub-notification-service
-git clone https://github.com/code-418-dpr/SportHub-bot.git services/SportHub-bot
 ```
 
 После этого вы можете вносить изменения в каждый из сервисов по-отдельности (в соответствии с инструкциями, описанными в
@@ -87,4 +85,15 @@ git clone https://github.com/code-418-dpr/SportHub-bot.git services/SportHub-bot
 
 ```shell
 docker compose up -d --build
+```
+
+Если вы уже работаете с проектом и внутри папок с сервисами есть файлы .env, они не должны попасть в контейнер. 
+Для этого при сборке используйте следующий набор команд:
+
+```shell
+mv ./services/SportHub-web/.env ./services/SportHub-web/_.env
+mv ./services/SportHub-parser/.env ./services/SportHub-parser/_.env 
+docker compose up -d --build
+mv ./services/SportHub-web/_.env ./services/SportHub-web/.env 
+mv ./services/SportHub-parser/_.env ./services/SportHub-parser/.env
 ```
