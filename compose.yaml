@@ -66,9 +66,12 @@ services:
       - seq
     networks:
       - network
+    volumes:
+      - parser_cache:/app/tmp
 
 networks:
   network:
 
 volumes:
   postgres_data:
+  parser_cache:
