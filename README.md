@@ -84,7 +84,7 @@ git clone https://github.com/code-418-dpr/SportHub-notification-service.git serv
 3. Теперь запускать проект можно командой:
 
 ```shell
-docker compose up -d --build
+docker compose --profile server up -d --build
 ```
 
 Если вы уже работаете с проектом и внутри папок с сервисами есть файлы .env, они не должны попасть в контейнер. 
@@ -93,7 +93,7 @@ docker compose up -d --build
 ```shell
 mv ./services/SportHub-web/.env ./services/SportHub-web/_.env
 mv ./services/SportHub-parser/.env ./services/SportHub-parser/_.env 
-docker compose up -d --build
+docker compose --profile local up -d --build
 mv ./services/SportHub-web/_.env ./services/SportHub-web/.env 
 mv ./services/SportHub-parser/_.env ./services/SportHub-parser/.env
 ```

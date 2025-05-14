@@ -1,5 +1,7 @@
 services:
   traefik:
+    profiles:
+      - server
     image: traefik:v3.4
     restart: unless-stopped
     command:
@@ -53,6 +55,8 @@ services:
       - network
 
   web:
+    profiles:
+      - server
     build:
       context: ./services/SportHub-web
       dockerfile: Dockerfile
@@ -73,6 +77,27 @@ services:
       - "traefik.http.routers.traefik.service=api@internal"
       # - "traefik.http.routers.traefik.middlewares=auth"
       # - "traefik.http.middlewares.auth.basicauth.users=${DASHBOARD_AUTH}"
+    depends_on:
+      - postgres
+      - seq
+    networks:
+      - network
+
+  web-local:
+    profiles:
+      - local
+    build:
+      context: ./services/SportHub-web
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      AUTH_TRUST_HOST: "true"
+      DATABASE_URL: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      AUTH_YANDEX_ID: ${AUTH_YANDEX_ID}
+      AUTH_YANDEX_SECRET: ${AUTH_YANDEX_SECRET}
+    ports:
+      - "3000:3000"
     depends_on:
       - postgres
       - seq
