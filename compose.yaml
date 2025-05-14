@@ -105,6 +105,8 @@ services:
       - network
 
   parser:
+    profiles:
+      - server
     build:
       context: ./services/SportHub-parser
       dockerfile: Dockerfile
@@ -119,6 +121,29 @@ services:
       - "8000:8000"
     depends_on:
       - web
+      - seq
+    networks:
+      - network
+    volumes:
+      - parser_cache:/app/tmp
+
+  parser-local:
+    profiles:
+      - local
+    build:
+      context: ./services/SportHub-parser
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      PDF_FILE_URL: https://www.minsport.gov.ru/activity/government-regulation/edinyj-kalendarnyj-plan/
+      BACKEND_DATA_ROUTE_URL: http://web-local:3000/api/data
+      LOCAL_PDF_ONLY: ""
+      # SEQ_URL: http://seq:5341
+      LOG_LEVEL: ${LOG_LEVEL}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - web-local
       - seq
     networks:
       - network
