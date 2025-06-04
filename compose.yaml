@@ -22,7 +22,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "letsencrypt:/letsencrypt"
     networks:
-      - network
+      - sporthub-network
 
   postgres:
     image: postgres:17-alpine
@@ -42,7 +42,7 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - network
+      - sporthub-network
 
   seq:
     image: datalust/seq:2024
@@ -52,7 +52,26 @@ services:
     ports:
       - "5341:80"
     networks:
-      - network
+      - sporthub-network
+
+  notification-service:
+    build:
+      context: ./services/SportHub-notification-service/src/SportHubNotificationService
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+      - seq
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - SMTP_SERVER=smtp.gmail.com
+      - SMTP_PORT=587
+      - SMTP_USERNAME=minoddein.ezz@gmail.com
+      - SMTP_PASSWORD=urlruiukmyuarruj
+    ports:
+      - "5004:5004"
+    networks:
+      - sporthub-network
 
   web:
     profiles:
@@ -67,6 +86,7 @@ services:
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
       AUTH_YANDEX_ID: ${AUTH_YANDEX_ID}
       AUTH_YANDEX_SECRET: ${AUTH_YANDEX_SECRET}
+      NOTIFICATION_SERVICE_URL: http://notification-service:5004
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.web.rule=Host(`${HOSTNAME}`)"
@@ -79,9 +99,9 @@ services:
       # - "traefik.http.middlewares.auth.basicauth.users=${DASHBOARD_AUTH}"
     depends_on:
       - postgres
-      - seq
+      - notification-service
     networks:
-      - network
+      - sporthub-network
 
   web-local:
     profiles:
@@ -96,13 +116,14 @@ services:
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
       AUTH_YANDEX_ID: ${AUTH_YANDEX_ID}
       AUTH_YANDEX_SECRET: ${AUTH_YANDEX_SECRET}
+      NOTIFICATION_SERVICE_URL: http://notification-service:5004
     ports:
       - "3000:3000"
     depends_on:
       - postgres
-      - seq
+      - notification-service
     networks:
-      - network
+      - sporthub-network
 
   parser:
     profiles:
@@ -123,7 +144,7 @@ services:
       - web
       - seq
     networks:
-      - network
+      - sporthub-network
     volumes:
       - parser_cache:/app/tmp
 
@@ -146,12 +167,12 @@ services:
       - web-local
       - seq
     networks:
-      - network
+      - sporthub-network
     volumes:
       - parser_cache:/app/tmp
 
 networks:
-  network:
+  sporthub-network:
 
 volumes:
   postgres_data:
