@@ -7,7 +7,7 @@
 
 <details>
   <summary><h2>Демо</h2></summary>
-  Главная страница
+  <h3>Главная страница</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/b965bd53-e269-46e1-a39a-96e7c7254379" />
   <h3>PDF-файл ЕКП</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/dd8bc1c7-9b7c-463f-ad2f-7afec08fbbd1" />
