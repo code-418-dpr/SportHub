@@ -7,7 +7,24 @@
 
 <details>
   <summary><h2>Демо</h2></summary>
-   Здесь будут скриншоты, возможно даже видео.
+  <img width="70%" src="https://github.com/user-attachments/assets/b965bd53-e269-46e1-a39a-96e7c7254379" />
+  <img width="70%" src="https://github.com/user-attachments/assets/dd8bc1c7-9b7c-463f-ad2f-7afec08fbbd1" />
+  <img width="70%" src="https://github.com/user-attachments/assets/b23d7340-da67-4240-bf8a-c70b2ce1fe01" />
+  <img width="70%" src="https://github.com/user-attachments/assets/d1ed5f12-133a-442f-9e91-c6e11ca572b3" />
+  <img width="70%" src="https://github.com/user-attachments/assets/8fa044af-b290-49ae-9f64-899f4a1344f3" />
+  <img width="70%" src="https://github.com/user-attachments/assets/d1710888-7e8f-4485-9a9d-4b07ab9c0ef7" />
+  <img width="70%" src="https://github.com/user-attachments/assets/7c4df366-b387-479e-9649-96726b87d7cf" />
+  <img width="70%" src="https://github.com/user-attachments/assets/d399a959-d432-4785-b68f-da01cb0cc54c" />
+  <img width="70%" src="https://github.com/user-attachments/assets/dbdb0f4c-2604-4ad1-ab09-77963648fe9f" />
+  <img width="70%" src="https://github.com/user-attachments/assets/9209420f-468e-44ac-b5ea-c543a7d42084" />
+  <img width="70%" src="https://github.com/user-attachments/assets/fb5f3fd1-5b78-4151-a8bf-66147f7e1641" />
+  <img width="70%" src="https://github.com/user-attachments/assets/088cb675-b994-4802-9447-837d03dc3c21" />
+  <img width="70%" src="https://github.com/user-attachments/assets/086b72b4-4f83-461e-a1ac-44c663c8b1e0" />
+  <img width="70%" src="https://github.com/user-attachments/assets/0440f2ba-66ac-4e21-819e-d8e9dd6e76fc" />
+  <img width="70%" src="https://github.com/user-attachments/assets/8c1a76cc-2f6a-4763-b206-c0e923ee2373" />
+  <img width="70%" src="https://github.com/user-attachments/assets/925048b5-f5ef-4e3c-8444-c8284586a83c" />
+  <img width="70%" src="https://github.com/user-attachments/assets/e79d7313-8f79-4c81-b797-e63e05366a9b" />
+  <img width="70%" src="https://github.com/user-attachments/assets/b722ed4c-6d4f-4d54-bf9a-41544b0bd165" />
 </details>
 
 ## Особенности реализации
@@ -92,8 +109,10 @@ docker compose --profile server up -d --build
 
 ```shell
 mv ./services/SportHub-web/.env ./services/SportHub-web/_.env
-mv ./services/SportHub-parser/.env ./services/SportHub-parser/_.env 
+mv ./services/SportHub-parser/.env ./services/SportHub-parser/_.env
+mv ./services/SportHub-notification-service/.env ./services/SportHub-notification-service/_.env 
 docker compose --profile local up -d --build
 mv ./services/SportHub-web/_.env ./services/SportHub-web/.env 
 mv ./services/SportHub-parser/_.env ./services/SportHub-parser/.env
+mv ./services/SportHub-notification-service/_.env ./services/SportHub-notification-service/.env
 ```
