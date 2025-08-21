@@ -7,23 +7,41 @@
 
 <details>
   <summary><h2>Демо</h2></summary>
+  Главная страница
   <img width="70%" src="https://github.com/user-attachments/assets/b965bd53-e269-46e1-a39a-96e7c7254379" />
+  <h3>PDF-файл ЕКП</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/dd8bc1c7-9b7c-463f-ad2f-7afec08fbbd1" />
+  <h3>Карточка мероприятия</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/b23d7340-da67-4240-bf8a-c70b2ce1fe01" />
+  <h3>Добавление мероприятия в Google Calendar</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/d1ed5f12-133a-442f-9e91-c6e11ca572b3" />
+  <h3>Форма входа</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/7780af99-c137-4363-87e9-d94677b0eba2" />
+  <h3>Форма регистрации</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/d1710888-7e8f-4485-9a9d-4b07ab9c0ef7" />
+  <h3>Сортировка</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/7c4df366-b387-479e-9649-96726b87d7cf" />
+  <h3>Пагинация</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/d399a959-d432-4785-b68f-da01cb0cc54c" />
+  <h3>Отметка об участии в прошедшем мероприятии</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/dbdb0f4c-2604-4ad1-ab09-77963648fe9f" />
+  <h3>Ещё пример соответствия между карточкой мероприятия и записью в ЕКП</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/9209420f-468e-44ac-b5ea-c543a7d42084" />
+  <h3>Отметка об участии в будущем мероприятии</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/79e7955a-10c6-4919-9e99-dcfa780d38dd" />
+  <h3>История участий</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/088cb675-b994-4802-9447-837d03dc3c21" />
+  <h3>Рекомендательная система</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/086b72b4-4f83-461e-a1ac-44c663c8b1e0" />
+  <h3>Редактирование профиля</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/0440f2ba-66ac-4e21-819e-d8e9dd6e76fc" />
+  <h3>Уведомления о предстоящих мероприятиях на электронную почту</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/8c1a76cc-2f6a-4763-b206-c0e923ee2373" />
+  <h3>Имитация обновления ЕКП через запрос к API</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/925048b5-f5ef-4e3c-8444-c8284586a83c" />
+  <h3>Добавленное событие отобразилось в таблице</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/e79d7313-8f79-4c81-b797-e63e05366a9b" />
+  <h3>Уведомление об обновлении ЕКП с подробным описанием изменений</h3>
   <img width="70%" src="https://github.com/user-attachments/assets/b722ed4c-6d4f-4d54-bf9a-41544b0bd165" />
 </details>
 
